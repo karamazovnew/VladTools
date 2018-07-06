@@ -30,9 +30,9 @@ public abstract class Series {
      * @return Array of sums
      * @see #nSum(int)
      */
-    public static ArrayList<Integer> nSum(int number, boolean asArray) {
-        ArrayList<Integer> result = new ArrayList<>();
-        int sign = 1;
+    public static ArrayList<long> nSum(int number, boolean asArray) {
+        ArrayList<long> result = new ArrayList<>();
+        byte sign = 1;
         if (number == 0) {
             result.add(0);
             return result;
@@ -40,7 +40,7 @@ public abstract class Series {
         if (number < 0) {
             sign = -1;
         }
-        int sum = 0;
+        long sum = 0;
         if (asArray) {
             for (int i = 1; i <= number * sign; i++) {
                 sum += (i * sign);
@@ -65,9 +65,9 @@ public abstract class Series {
      * @return sum as integer
      * @see #nSum(int, boolean)
      */
-    public static int nSum(int number) {
-        int result = 0;
-        int sign = 1;
+    public static long nSum(int number) {
+        long result = 0;
+        byte sign = 1;
         if (number == 0) {
             return 0;
         }
@@ -96,9 +96,9 @@ public abstract class Series {
      * @return Array of factorial products.
      * @see #factorial(int)
      */
-    public static ArrayList<Integer> factorial(int number, boolean asArray) {
-        ArrayList<Integer> result = new ArrayList<>();
-        int sign = 1;
+    public static ArrayList<long> factorial(int number, boolean asArray) {
+        ArrayList<long> result = new ArrayList<>();
+        byte sign = 1;
         if (number == 0) {
             result.add(0);
             return result;
@@ -106,7 +106,7 @@ public abstract class Series {
         if (number < 0) {
             sign = -1;
         }
-        int product = 1;
+        long product = 1;
         if (asArray) {
             for (int i = 1; i <= number * sign; i++) {
                 product = product * i * sign;
@@ -132,8 +132,8 @@ public abstract class Series {
      * @see #factorial(int, boolean)
      */
     public static int factorial(int number) {
-        int result = 1;
-        int sign = 1;
+        long result = 1;
+        byte sign = 1;
         if (number == 0) {
             return 0;
         }
@@ -152,7 +152,7 @@ public abstract class Series {
      * <i>example: fibonacci(5) = 0, 1, 1, 2, 3, 5</i>
      * <br>
      *
-     * @param number nTh number to calculate to. Should be positive.
+     * @param number nTh number to calculate to. Must be positive.
      * @param asArray size of the returned array:
      * <ul>
      * <li> {@code true}, return the entire array.</li>
@@ -162,8 +162,8 @@ public abstract class Series {
      * @return Array of Fibonacci numbers.
      * @see #fibonacci(int)
      */
-    public static ArrayList<Integer> fibonacci(int number, boolean asArray) {
-        ArrayList<Integer> result = new ArrayList<>();
+    public static ArrayList<long> fibonacci(int number, boolean asArray) {
+        ArrayList<long> result = new ArrayList<>();
         if (number <= 0) {
             result.add(0);
             return result;
@@ -174,9 +174,9 @@ public abstract class Series {
             return result;
         }
         else{
-            int fibo = 0;
-            int prev1 = 1;
-            int prev2 = 0;
+            long fibo = 0;
+            long prev1 = 1;
+            long prev2 = 0;
             if(asArray){
                 result.add(0);
                 result.add(1);
@@ -201,19 +201,19 @@ public abstract class Series {
     /**
      * Returns nth Fibonacci number.
      *
-     * @param number nTh number to calculate to. Should be positive.
+     * @param number nTh number to calculate to. Must be positive.
      * @return nth Fibonacci number.
      * @see #fibonacci(int, boolean)
      */
-    public static int fibonacci(int number) {
-        int result = 0;
+    public static long fibonacci(int number) {
+        long result = 0;
         if (number <= 0) {
             return 0;
         } else if (number == 1) {
             return 1;
         } else {
-            int prev1 = 1;
-            int prev2 = 0;
+            long prev1 = 1;
+            long prev2 = 0;
             for (int i = 2; i <= number; i++) {
                 result = prev1 + prev2;
                 prev2 = prev1;
