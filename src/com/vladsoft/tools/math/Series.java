@@ -30,25 +30,25 @@ public abstract class Series {
      * @return Array of sums
      * @see #nSum(int)
      */
-    public static ArrayList<long> nSum(int number, boolean asArray) {
-        ArrayList<long> result = new ArrayList<>();
-        byte sign = 1;
+    public static ArrayList<Long> nSum(int number, boolean asArray) {
+        ArrayList<Long> result = new ArrayList<>();
+        int sign = 1;
         if (number == 0) {
-            result.add(0);
+            result.add(0L);
             return result;
         }
         if (number < 0) {
             sign = -1;
         }
-        long sum = 0;
+        long sum = 0L;
         if (asArray) {
             for (int i = 1; i <= number * sign; i++) {
-                sum += (i * sign);
+                sum += (long)(i * sign);
                 result.add(sum);
             }
         } else {
             for (int i = 1; i <= number * sign; i++) {
-                sum += i * sign;
+                sum += (long)(i * sign);
             }
             result.add(sum);
         }
@@ -66,8 +66,8 @@ public abstract class Series {
      * @see #nSum(int, boolean)
      */
     public static long nSum(int number) {
-        long result = 0;
-        byte sign = 1;
+        long result = 0L;
+        int sign = 1;
         if (number == 0) {
             return 0;
         }
@@ -75,7 +75,7 @@ public abstract class Series {
             sign = -1;
         }
         for (int i = 1; i <= number * sign; i++) {
-            result += i * sign;
+            result += (long)(i * sign);
         }
         return result;
     }
@@ -96,27 +96,27 @@ public abstract class Series {
      * @return Array of factorial products.
      * @see #factorial(int)
      */
-    public static ArrayList<long> factorial(int number, boolean asArray) {
-        ArrayList<long> result = new ArrayList<>();
-        byte sign = 1;
+    public static ArrayList<Long> factorial(int number, boolean asArray) {
+        ArrayList<Long> result = new ArrayList<>();
+        int sign = 1;
         if (number == 0) {
-            result.add(0);
+            result.add(0L);
             return result;
         }
         if (number < 0) {
             sign = -1;
         }
-        long product = 1;
+        long product = 1L;
         if (asArray) {
             for (int i = 1; i <= number * sign; i++) {
-                product = product * i * sign;
+                product = product * (long)(i * sign);
                 result.add(product);
             }
         } else {
             for (int i = 1; i <= number * sign; i++) {
-                product = product * i * sign;
+                product = product * (long)(i * sign);
             }
-            result.add(product);
+            result.add(product);                    
         }
         return result;
     }
@@ -131,9 +131,9 @@ public abstract class Series {
      * @return Factorial product as integer.
      * @see #factorial(int, boolean)
      */
-    public static int factorial(int number) {
-        long result = 1;
-        byte sign = 1;
+    public static long factorial(int number) {
+        long result = 1L;
+        int sign = 1;
         if (number == 0) {
             return 0;
         }
@@ -141,7 +141,7 @@ public abstract class Series {
             sign = -1;
         }
         for (int i = 1; i <= number * sign; i++) {
-            result = result * i * sign;
+            result = result * (long)(i * sign);
         }
         return result;
     }
@@ -162,24 +162,24 @@ public abstract class Series {
      * @return Array of Fibonacci numbers.
      * @see #fibonacci(int)
      */
-    public static ArrayList<long> fibonacci(int number, boolean asArray) {
-        ArrayList<long> result = new ArrayList<>();
+    public static ArrayList<Long> fibonacci(int number, boolean asArray) {
+        ArrayList<Long> result = new ArrayList<>();
         if (number <= 0) {
-            result.add(0);
+            result.add(0L);
             return result;
         }
         else if(number==1){
-            if(asArray) result.add(0);
-            result.add(1);
+            if(asArray) result.add(0L);
+            result.add(1L);
             return result;
         }
         else{
-            long fibo = 0;
-            long prev1 = 1;
-            long prev2 = 0;
+            long fibo = 0L;
+            long prev1 = 1L;
+            long prev2 = 0L;
             if(asArray){
-                result.add(0);
-                result.add(1);
+                result.add(0L);
+                result.add(1L);
                 for (int i = 2; i <= number; i++) {
                     fibo = prev1 + prev2;
                     prev2 = prev1;
@@ -206,14 +206,14 @@ public abstract class Series {
      * @see #fibonacci(int, boolean)
      */
     public static long fibonacci(int number) {
-        long result = 0;
+        long result = 0L;
         if (number <= 0) {
             return 0;
         } else if (number == 1) {
             return 1;
         } else {
-            long prev1 = 1;
-            long prev2 = 0;
+            long prev1 = 1L;
+            long prev2 = 0L;
             for (int i = 2; i <= number; i++) {
                 result = prev1 + prev2;
                 prev2 = prev1;
